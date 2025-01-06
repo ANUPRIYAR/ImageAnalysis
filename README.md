@@ -86,4 +86,7 @@ https://github.com/ultralytics/ultralytics
 https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb
 
 
+https://universe.roboflow.com/dennis-mtgir/property-insurance/model/1
+
+
 
