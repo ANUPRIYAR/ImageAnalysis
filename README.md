@@ -89,10 +89,15 @@ https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/noteboo
 https://universe.roboflow.com/dennis-mtgir/property-insurance/model/1
 
 
-
+https://pyimagesearch.com/2014/12/01/complete-guide-building-image-search-engine-python-opencv/
 Underwritng Resources:
 https://www.scnsoft.com/insurance/ai-underwriting
 https://www.clarifai.com/solutions/ai-in-insurance
 https://medium.com/dataman-in-ai/module-6-2-an-use-case-of-image-recognition-in-insurance-claim-handling-2ac67e4ad247
 https://www.researchgate.net/publication/387172084_Predictive_Modeling_for_Insurance_Underwriting
 https://www.youtube.com/watch?v=wFiOoS_g3tY
+
+
+
+Image Search
+https://docs.ultralytics.com/modes/predict/#key-features-of-predict-mode
