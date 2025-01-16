@@ -1,5 +1,5 @@
 # ImageAnalysis
-
+Claude 3.5 Sonnet 2024-10-22
 ## Resources
 https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb
 [ImageAnalysisResources](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb)
