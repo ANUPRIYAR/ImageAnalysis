@@ -337,3 +337,6 @@ The mathematical attention formula determines relevance through scaled dot-produ
 --- 
 
 Feel free to modify any sections to better fit your presentation style or to include additional details you think are important!
+
+
+https://deepgram.com/learn/visualizing-and-explaining-transformer-models-from-the-ground-up
