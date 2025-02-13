@@ -1,0 +1,67 @@
+from typing import List, Optional, AsyncGenerator
+from metagpt.provider import LLM
+from metagpt.provider.base_llm import Response
+from metagpt.schema import Message
+
+class CustomLLM(LLM):
+    def __init__(self, config: CustomLLMConfig):
+        super().__init__(config)
+        self.config = config
+        # Initialize any clients or settings needed for your LLM
+
+    async def _achat(self, messages: List[Message], timeout: int = 3) -> Response:
+        # Convert messages to your LLM's required format
+        formatted_messages = self._format_messages(messages)
+        
+        # Make API call to your custom LLM
+        response = await self._call_custom_llm_api(formatted_messages, timeout)
+        
+        # Parse the response into MetaGPT's Response object
+        return Response(
+            content=response["content"],
+            model=self.config.model_name,
+            usage=response.get("usage", {})
+        )
+
+    def _format_messages(self, messages: List[Message]) -> list:
+        # Convert list of Message objects to the format expected by your LLM
+        formatted = []
+        for msg in messages:
+            formatted.append({"role": msg.role, "content": msg.content})
+        return formatted
+
+    async def _call_custom_llm_api(self, messages: list, timeout: int) -> dict:
+        # Example using aiohttp for async HTTP requests
+        import aiohttp
+        
+        headers = {
+            "Authorization": f"Bearer {self.config.api_key}",
+            "Content-Type": "application/json"
+        }
+        data = {
+            "messages": messages,
+            "temperature": self.config.temperature,
+            "max_tokens": self.config.max_tokens
+        }
+        
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                self.config.api_endpoint,
+                headers=headers,
+                json=data,
+                timeout=timeout
+            ) as resp:
+                resp.raise_for_status()
+                return await resp.json()
+
+
+
+
+
+
+
+
+
+
+
+
