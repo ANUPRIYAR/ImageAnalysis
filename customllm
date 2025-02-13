@@ -1,67 +1,44 @@
-from typing import List, Optional, AsyncGenerator
-from metagpt.provider import LLM
-from metagpt.provider.base_llm import Response
+from typing import AsyncGenerator, List, Optional
+import aiohttp
+from metagpt.configs.llm_config import LLMConfig
+from metagpt.provider.base_llm import BaseLLM
 from metagpt.schema import Message
 
-class CustomLLM(LLM):
+class CustomLLMConfig(LLMConfig):
+    api_endpoint: str
+    api_key: str
+    model: str = "custom-model"
+    temperature: float = 0.7
+    max_tokens: int = 2048
+
+class CustomLLM(BaseLLM):
     def __init__(self, config: CustomLLMConfig):
-        super().__init__(config)
+        super().__init__()
         self.config = config
-        # Initialize any clients or settings needed for your LLM
+        # Initialize your client here
 
-    async def _achat(self, messages: List[Message], timeout: int = 3) -> Response:
-        # Convert messages to your LLM's required format
-        formatted_messages = self._format_messages(messages)
-        
-        # Make API call to your custom LLM
-        response = await self._call_custom_llm_api(formatted_messages, timeout)
-        
-        # Parse the response into MetaGPT's Response object
-        return Response(
-            content=response["content"],
-            model=self.config.model_name,
-            usage=response.get("usage", {})
-        )
+    async def _aask(self, prompt: str, timeout: int = 3) -> str:
+        messages = [Message(role="user", content=prompt)]
+        return await self._achat(messages, timeout=timeout)
 
-    def _format_messages(self, messages: List[Message]) -> list:
-        # Convert list of Message objects to the format expected by your LLM
-        formatted = []
-        for msg in messages:
-            formatted.append({"role": msg.role, "content": msg.content})
-        return formatted
-
-    async def _call_custom_llm_api(self, messages: list, timeout: int) -> dict:
-        # Example using aiohttp for async HTTP requests
-        import aiohttp
-        
-        headers = {
-            "Authorization": f"Bearer {self.config.api_key}",
-            "Content-Type": "application/json"
-        }
-        data = {
-            "messages": messages,
-            "temperature": self.config.temperature,
-            "max_tokens": self.config.max_tokens
-        }
+    async def _achat(self, messages: List[Message], timeout: int = 3) -> str:
+        formatted = [{"role": msg.role, "content": msg.content} for msg in messages]
         
         async with aiohttp.ClientSession() as session:
             async with session.post(
                 self.config.api_endpoint,
-                headers=headers,
-                json=data,
+                headers={"Authorization": f"Bearer {self.config.api_key}"},
+                json={
+                    "messages": formatted,
+                    "temperature": self.config.temperature,
+                    "max_tokens": self.config.max_tokens
+                },
                 timeout=timeout
-            ) as resp:
-                resp.raise_for_status()
-                return await resp.json()
+            ) as response:
+                response.raise_for_status()
+                data = await response.json()
+                return data["choices"][0]["message"]["content"]
 
-
-
-
-
-
-
-
-
-
-
-
+    async def _acompletion_text(self, prompt: str, stream: bool = False, timeout: int = 3) -> AsyncGenerator:
+        response = await self._aask(prompt, timeout)
+        yield response
