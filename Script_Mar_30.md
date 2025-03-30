@@ -142,7 +142,7 @@ What real-world impact does this have?
 It means models using WordPiece can better understand technical jargon, names, and specialized vocabulary they've never seen in training - a critical 
 capability for practical applications in fields like medicine, law, and science.
 
-## Traditional Prompting Techniques ()
+## Traditional Prompting Techniques
 "Let's start by understanding the foundation of prompting techniques. As you can see on this slide, we have four key methods that have evolved over time:
 
 Basic Input-Output (IO): The simplest form where we provide an input and receive an output with no intermediate steps. For example, asking 'What is the capital of France?' and receiving 'Paris.'
@@ -312,6 +312,12 @@ Maintaining surprisingly high performance despite the compression
 
 [Share impressive result]
 "The most remarkable aspect of QLoRA is how it democratizes AI development. Models that previously required enterprise-grade infrastructure can now be customized on a single consumer GPU. We've seen researchers fine-tune 70B parameter models on laptops!"
+
+In depth:   
+![image](https://github.com/user-attachments/assets/e5ca0671-5e8f-4ef6-ae7f-74489b03394b)
+![image](https://github.com/user-attachments/assets/895aa0c2-8382-4c00-a824-c01fe09bc13e)
+
+
 
 ###  Prompt Tuning
 "As we continue exploring parameter-efficient techniques, let's look at Prompt Tuning, which represents another innovative approach to customizing LLMs without the computational burden of full fine-tuning.
