@@ -323,7 +323,7 @@ As you can see in the diagram, this approach differs fundamentally from traditio
 
 
 
-#### Script for Slide: Prefix Tuning
+####  Prefix Tuning
 "Building on our discussion of prompt tuning, let's explore a more sophisticated technique called Prefix Tuning. This approach takes the concept further by working not just at the input level, but throughout the model's architecture.
 Prefix Tuning is another parameter-efficient fine-tuning technique where trainable prefix embeddings—continuous vectors—are prepended to the model's activations at every layer. This allows for deeper guidance of the model's behavior without modifying its core weights.
 The mechanics are similar to prompt tuning but with greater reach: The pre-trained model remains frozen, preserving all its knowledge and capabilities. Learnable prefix embeddings are added to each transformer layer's input. During training, only these prefix embeddings are optimized, influencing how the model processes text throughout its entire pipeline.
@@ -332,8 +332,7 @@ To illustrate: Consider customizing GPT-3 for medical Q&A applications. Prefix T
 The diagram on the right visualizes how prefix tuning differs from traditional fine-tuning. While fine-tuning modifies all parameters throughout the model, prefix tuning strategically adds small trainable components at each layer, achieving similar performance with substantially less computational overhead.
 This technique represents an important step forward in making large language models more accessible and adaptable for specialized applications without requiring access to massive computational resources."
 
-I'll create engaging scripts for your next slides on distillation techniques, building on the previous content about PEFT methods like Prompt Tuning and Prefix Tuning.
-Script for Slide: Converting LLMs to SLMs - Distillation
+#### Converting LLMs to SLMs - Distillation
 "Now that we've explored parameter-efficient fine-tuning techniques, let's shift our focus to another powerful approach for maximizing LLM efficiency: distillation.
 What you're seeing on the right side of this slide is the essence of model distillation visualized. We're literally transferring knowledge from a large, computationally expensive 'teacher' model into a more compact 'student' model.
 Think of this like education in the human world: the teacher possesses deep knowledge but requires significant resources, while the student can learn the most important lessons in a more efficient package.
@@ -342,14 +341,18 @@ This process is transformative for practical AI deployment. The large transforme
 The beauty of this approach is that we're not simply compressing the model—we're selectively transferring the most valuable insights, similar to how you might distill complex information into key takeaways for your own presentations.
 Ask yourself: How might your organization benefit from deploying more efficient models that maintain high performance but require significantly fewer resources? This is exactly what distillation enables.
 In our next slide, we'll dive into exactly how this process works in practice."
-Script for Slide: Knowledge Distillation
+
+
+###  Knowledge Distillation
 "Let's unpack knowledge distillation in more detail. At its core, distillation is an elegant technique where a smaller 'student' model learns to replicate the knowledge of a larger 'teacher' model using fewer parameters.
 The process works in three key steps: First, we train a large teacher model on our dataset—this is our knowledge foundation. Second—and this is crucial—we transfer knowledge not through raw labels but through soft labels and logits. These contain richer information about the teacher's understanding, including its uncertainties and the relationships it sees between different outputs. Third, we train a smaller student model to mimic these nuanced teacher outputs rather than just the final answers.
 [Gesture toward diagram]
 This approach offers several compelling advantages: We dramatically reduce model size—often by 75% or more. The smaller models process data more quickly, delivering faster inference when deployed. And perhaps most importantly for many organizations, this translates directly to lower computational costs and energy consumption.
 Let me bring this to life with some practical use cases: Imagine deploying sophisticated AI assistants directly on mobile devices instead of requiring constant server communication. Or consider real-time applications where reducing latency from hundreds to tens of milliseconds creates a dramatically better user experience. And for specialized domains, you can create customized AI models that approach teacher-level accuracy while running on much more modest hardware.
 I'm curious—which of these use cases resonates most with the challenges your teams are facing?"
-Script for Slide: Other Distillation Techniques
+
+
+#### Other Distillation Techniques
 "Beyond basic knowledge distillation, researchers have developed several innovative variations that further enhance this powerful approach. Let me walk you through three particularly promising techniques.
 First, data augmentation. This technique leverages the teacher model to generate additional training data, exposing the student to a broader range of scenarios. Think of it as expanding the student's education beyond the standard curriculum. By creating a larger and more diverse dataset, the student develops better generalization abilities—crucial for handling novel situations in real-world deployments.
 [Pause briefly]
@@ -359,7 +362,7 @@ Finally, multi-teacher distillation. Just as we might learn different perspectiv
 Consider how these techniques might apply to your specific use cases. Which approach—expanding training data, accessing intermediate representations, or learning from multiple teachers—might best address your efficiency challenges while maintaining the capabilities you need?
 
 
-Slide 1 Title: "Key Strategies to Maximize LLM Efficiency"
+#### "Key Strategies to Maximize LLM Efficiency"
 Script:
 "Let’s recap the three pillars that unlock the full potential of Large Language Models.
 (Pause for effect, then click to animate each bullet point.)
@@ -375,7 +378,7 @@ Good prompt: “Explain how AI improves healthcare in 3 bullet points.” ➔ Pr
 
 3️⃣ Fine-Tuning: Custom-tailoring the model for specific tasks. (Gesture to the comparison table) Let’s dive deeper into how to choose the best fine-tuning method for your needs…"
 
-Slide 2 Title: "Fine-Tuning: Picking the Right Tool for the Job"
+#### "Fine-Tuning: Picking the Right Tool for the Job"
 Script:
 (Display the comparison table from diff.png, but highlight one row at a time as you explain.)
 
