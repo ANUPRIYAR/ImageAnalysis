@@ -315,6 +315,8 @@ Maintaining surprisingly high performance despite the compression
 
 In depth:   
 ![image](https://github.com/user-attachments/assets/e5ca0671-5e8f-4ef6-ae7f-74489b03394b)
+![image](https://github.com/user-attachments/assets/81cf0a9a-75e7-45e0-aec9-09260aed6fa4)
+
 ![image](https://github.com/user-attachments/assets/895aa0c2-8382-4c00-a824-c01fe09bc13e)
 
 
