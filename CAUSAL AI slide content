@@ -36,4 +36,10 @@ Portfolio optimization
 
 Causal analysis(what - if) on reinsurance and CAT Modelling)
 Causal Analysis on Geo spatial Data -> can be linked with CAT modelling  (Catastrophic Modelling)
+
+References found
 Deep Causal Inference for Point-referenced Spatial Data with Continuous Treatments : https://arxiv.org/abs/2412.04285
+https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-statistics/causal-inference-analysis.htm
+Causal inference in spatial statistics : https://ris.utwente.nl/ws/portalfiles/portal/276633591/1_s2.0_S2211675322000173_main.pdf
+Geospatial Solutions to Cat Risk : https://www.casact.org/sites/default/files/2021-11/CS10-Finding_Waldo-1.pdf
+Catastrophe Modeling : https://carto.com/solutions/catastrophe-modeling
